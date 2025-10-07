@@ -37,9 +37,20 @@
         <a href="/contact" class="hover:opacity-80 transition-opacity" style="color: var(--text-secondary);">聯繫我們</a>
       </div>
 
-      <div class="text-sm" style="color: var(--text-secondary);">
+      <div class="text-sm" style="color: var(--text-secondary);" id="copyright">
         © 2024 Cherry App Store. All rights reserved.
       </div>
+
+      <script>
+        // 動態更新版權年份
+        document.addEventListener('DOMContentLoaded', () => {
+          const copyrightElement = document.getElementById('copyright');
+          if (copyrightElement) {
+            const currentYear = new Date().getFullYear();
+            copyrightElement.textContent = `© ${currentYear} Cherry App Store. All rights reserved.`;
+          }
+        });
+      </script>
     </div>
   </div>
 </footer>
