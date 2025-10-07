@@ -1,11 +1,64 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <div class="home-page min-h-screen flex flex-col items-center justify-center px-6" style="background-color: var(--bg-primary);">
+    <!-- Logo 區域 -->
+    <div class="logo-section text-center mb-12">
+      <img src="/logo.svg" alt="Cherry App Store" class="w-24 h-24 mx-auto mb-6" />
+      <h1 class="text-5xl font-bold mb-4" style="color: var(--text-primary);">Cherry App Store</h1>
+      <p class="text-xl" style="color: var(--text-secondary);">Discover amazing apps for your devices</p>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="search-section w-full max-w-2xl">
+      <div class="relative">
+        <input
+          type="text"
+          placeholder="Search for apps..."
+          class="w-full px-6 py-4 text-lg rounded-2xl border-2 focus:outline-none focus:ring-2 transition-all duration-300"
+          style="background-color: var(--bg-secondary); border-color: var(--border-color); color: var(--text-primary); --tw-ring-color: #f43f5e;"
+        />
+        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-xl hover:bg-gray-100 transition-colors" style="color: var(--text-secondary);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .home-page {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .search-section input:focus {
+      transform: scale(1.02);
+    }
+
+    .search-section input::placeholder {
+      color: var(--text-secondary);
+      opacity: 0.7;
+    }
+
+    @media (max-width: 640px) {
+      .logo-section h1 {
+        font-size: 2.5rem;
+      }
+
+      .logo-section p {
+        font-size: 1.125rem;
+      }
+
+      .search-section input {
+        font-size: 1rem;
+        padding: 1rem;
+      }
+    }
+  </style>
 </Layout>
