@@ -1,124 +1,343 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
 ---
 
 <Layout>
-  <div class="settings-container max-w-4xl mx-auto p-6">
-    <h1 class="text-3xl font-bold text-gray-80 mb-8">設定</h1>
-    
-    <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-      <h2 class="text-xl font-semibold text-gray-700 mb-4">帳戶設定</h2>
+  <div class="settings-page" style="background-color: var(--bg-primary); min-height: calc(100vh - 80px);">
+    <div class="settings-container max-w-7xl mx-auto p-6">
+      <h1 class="text-4xl font-bold mb-8" style="color: var(--text-primary);">Settings</h1>
       
-      <div class="mb-6">
-        <label class="block text-gray-600 mb-2">語言</label>
-        <select 
-          name="language"
-          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-300 focus:border-transparent"
-        >
-          <option value="zh-TW">繁體中文</option>
-          <option value="zh-CN">简体中文</option>
-          <option value="en">English</option>
-          <option value="ja">日本語</option>
-        </select>
+      <div class="settings-layout flex gap-6">
+        <!-- 左側導航 -->
+        <aside class="settings-sidebar w-80 flex-shrink-0 sticky top-24 h-fit">
+          <div class="sidebar-section rounded-xl p-4" style="background-color: var(--card-bg); box-shadow: var(--shadow);">
+            <h2 class="text-sm font-semibold mb-3 text-rose-500 uppercase">Display</h2>
+            <button class="sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-rose-500 hover:bg-rose-600 text-white font-medium transition-colors">
+              <span class="text-xl">🎨</span>
+              <span>Appearance</span>
+            </button>
+          </div>
+        </aside>
+
+        <!-- 右側內容 -->
+        <main class="settings-content flex-1">
+          <div class="content-card rounded-xl p-8" style="background-color: var(--card-bg); box-shadow: var(--shadow);">
+            <h2 class="text-3xl font-bold mb-3" style="color: var(--text-primary);">Color theme</h2>
+            <p class="text-gray-600 mb-8">Select your preferred color theme for Cherry App Store on this device.</p>
+            
+            <div class="theme-options grid grid-cols-2 gap-4">
+              <!-- Sync with system -->
+              <label class="theme-card cursor-pointer">
+                <input type="radio" name="theme" value="auto" class="hidden theme-radio" checked />
+                <div class="card-inner rounded-xl p-4 border-2 transition-all" style="background-color: var(--bg-secondary); border-color: var(--border-color);">
+                  <div class="preview-area rounded-lg mb-4 p-6 flex items-center justify-center" style="background: linear-gradient(135deg, #e5e7eb 0%, #e5e7eb 50%, #1f2937 50%, #1f2937 100%); height: 120px;">
+                    <div class="preview-card bg-white rounded-lg shadow-md p-3 w-32" style="box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                      <div class="flex items-center gap-2 mb-2">
+                        <div class="w-6 h-6 bg-gray-300 rounded"></div>
+                        <div class="flex-1">
+                          <div class="h-2 bg-gray-800 rounded mb-1"></div>
+                          <div class="h-2 bg-gray-800 rounded w-3/4"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="radio-indicator w-5 h-5 rounded-full border-2 border-gray-400 flex items-center justify-center">
+                      <div class="radio-dot w-3 h-3 rounded-full bg-rose-500 hidden"></div>
+                    </div>
+                    <span class="font-medium" style="color: var(--text-primary);">Sync with system</span>
+                  </div>
+                </div>
+              </label>
+
+              <!-- Light -->
+              <label class="theme-card cursor-pointer">
+                <input type="radio" name="theme" value="light" class="hidden theme-radio" />
+                <div class="card-inner rounded-xl p-4 border-2 transition-all" style="background-color: var(--bg-secondary); border-color: var(--border-color);">
+                  <div class="preview-area rounded-lg mb-4 p-6 flex items-center justify-center" style="background-color: #e5e7eb; height: 120px;">
+                    <div class="preview-card bg-white rounded-lg shadow-md p-3 w-32" style="box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                      <div class="flex items-center gap-2 mb-2">
+                        <div class="w-6 h-6 bg-gray-300 rounded"></div>
+                        <div class="flex-1">
+                          <div class="h-2 bg-gray-800 rounded mb-1"></div>
+                          <div class="h-2 bg-gray-800 rounded w-3/4"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="radio-indicator w-5 h-5 rounded-full border-2 border-gray-400 flex items-center justify-center">
+                      <div class="radio-dot w-3 h-3 rounded-full bg-rose-500 hidden"></div>
+                    </div>
+                    <span class="font-medium" style="color: var(--text-primary);">Light ☀️</span>
+                  </div>
+                </div>
+              </label>
+
+              <!-- Dark -->
+              <label class="theme-card cursor-pointer">
+                <input type="radio" name="theme" value="dark" class="hidden theme-radio" />
+                <div class="card-inner rounded-xl p-4 border-2 transition-all" style="background-color: var(--bg-secondary); border-color: var(--border-color);">
+                  <div class="preview-area rounded-lg mb-4 p-6 flex items-center justify-center" style="background-color: #000000; height: 120px;">
+                    <div class="preview-card rounded-lg shadow-md p-3 w-32" style="background-color: #1f2937; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+                      <div class="flex items-center gap-2 mb-2">
+                        <div class="w-6 h-6 bg-gray-600 rounded"></div>
+                        <div class="flex-1">
+                          <div class="h-2 bg-gray-300 rounded mb-1"></div>
+                          <div class="h-2 bg-gray-300 rounded w-3/4"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="radio-indicator w-5 h-5 rounded-full border-2 border-gray-400 flex items-center justify-center">
+                      <div class="radio-dot w-3 h-3 rounded-full bg-rose-500 hidden"></div>
+                    </div>
+                    <span class="font-medium" style="color: var(--text-primary);">Dark 🌙</span>
+                  </div>
+                </div>
+              </label>
+
+              <!-- OLED -->
+              <label class="theme-card cursor-pointer">
+                <input type="radio" name="theme" value="oled" class="hidden theme-radio" />
+                <div class="card-inner rounded-xl p-4 border-2 transition-all" style="background-color: var(--bg-secondary); border-color: var(--border-color);">
+                  <div class="preview-area rounded-lg mb-4 p-6 flex items-center justify-center" style="background-color: #000000; height: 120px;">
+                    <div class="preview-card rounded-lg shadow-md p-3 w-32" style="background-color: #000000; box-shadow: 0 2px 8px rgba(0,0,0,0.5); border: 1px solid #1f2937;">
+                      <div class="flex items-center gap-2 mb-2">
+                        <div class="w-6 h-6 bg-gray-700 rounded"></div>
+                        <div class="flex-1">
+                          <div class="h-2 bg-gray-400 rounded mb-1"></div>
+                          <div class="h-2 bg-gray-400 rounded w-3/4"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="radio-indicator w-5 h-5 rounded-full border-2 border-gray-400 flex items-center justify-center">
+                      <div class="radio-dot w-3 h-3 rounded-full bg-rose-500 hidden"></div>
+                    </div>
+                    <span class="font-medium" style="color: var(--text-primary);">OLED</span>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </main>
       </div>
-      
-      <div class="mb-6">
-        <label class="block text-gray-600 mb-2">隱私設定</label>
-        <div class="space-y-2">
-          <label class="flex items-center">
-            <input 
-              type="radio" 
-              name="privacy" 
-              value="public"
-              class="mr-2 text-rose-500"
-            />
-            公開
-          </label>
-          <label class="flex items-center">
-            <input 
-              type="radio" 
-              name="privacy" 
-              value="private"
-              class="mr-2 text-rose-500"
-            />
-            私人
-          </label>
-        </div>
-      </div>
-    
-    <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-      <h2 class="text-xl font-semibold text-gray-700 mb-4">應用程式設定</h2>
-      
-      <div class="flex items-center justify-between py-3 border-b border-gray-100">
-        <span class="text-gray-600">接收通知</span>
-        <label class="relative inline-flex items-center cursor-pointer">
-          <input 
-            type="checkbox" 
-            class="sr-only peer"
-          />
-          <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-rose-300 rounded-full peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-30 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-rose-500"></div>
-        </label>
-      </div>
-      
-      <div class="flex items-center justify-between py-3 border-b border-gray-100">
-        <span class="text-gray-600">自動更新應用程式</span>
-        <label class="relative inline-flex items-center cursor-pointer">
-          <input 
-            type="checkbox" 
-            checked
-            class="sr-only peer"
-          />
-          <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-rose-300 rounded-full peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-rose-500"></div>
-        </label>
-      </div>
-    </div>
-    
-    <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-      <h2 class="text-xl font-semibold text-gray-700 mb-4">外觀設定</h2>
-      
-      <div class="flex items-center justify-between py-3 border-b border-gray-100">
-        <span class="text-gray-600">深色模式</span>
-        <label class="relative inline-flex items-center cursor-pointer">
-          <input 
-            type="checkbox" 
-            class="sr-only peer"
-          />
-          <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-rose-300 rounded-full peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-30 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-rose-500"></div>
-        </label>
-      </div>
-    
-    <div class="mt-8 flex justify-end">
-      <button class="bg-rose-500 hover:bg-rose-60 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300">
-        儲存設定
-      </button>
     </div>
   </div>
-</Layout>
 
-<style>
-  .settings-container {
-    margin-top: 2rem;
-  }
-  
-  .settings-container h1 {
-    color: #33;
-  }
-  
-  .settings-container h2 {
-    color: #444;
-  }
-  
-  .settings-container label {
-    cursor: pointer;
-  }
-  
-  .settings-container select {
-    background-color: white;
-    cursor: pointer;
-  }
-  
-  .settings-container button {
-    cursor: pointer;
-  }
-</style>
+  <script>
+    // 主題切換邏輯
+    const themeCards = document.querySelectorAll('.theme-card');
+    const themeRadios = document.querySelectorAll('.theme-radio');
+
+    // 初始化：從 localStorage 載入主題
+    function initTheme() {
+      // 確保 themeManager 已載入
+      if (!(window as any).themeManager) {
+        console.log('Theme manager not ready, retrying...');
+        setTimeout(initTheme, 100);
+        return;
+      }
+
+      const savedTheme = (window as any).themeManager.getCurrentTheme() || 'auto';
+      console.log('Initializing theme UI with:', savedTheme);
+
+      // 取消所有選中狀態
+      document.querySelectorAll('.theme-radio').forEach(r => {
+        (r as HTMLInputElement).checked = false;
+      });
+
+      const radio = document.querySelector(`input[value="${savedTheme}"]`) as HTMLInputElement;
+      if (radio) {
+        radio.checked = true;
+        updateCardStyles(radio);
+        console.log('Theme UI updated to:', savedTheme);
+      } else {
+        // 如果沒有找到對應的 radio，默認選擇 auto
+        const autoRadio = document.querySelector('input[value="auto"]') as HTMLInputElement;
+        if (autoRadio) {
+          autoRadio.checked = true;
+          updateCardStyles(autoRadio);
+          console.log('Defaulted to auto theme');
+        }
+      }
+    }
+
+    // 更新卡片樣式
+    function updateCardStyles(selectedRadio: HTMLInputElement) {
+      console.log('Updating card styles for:', selectedRadio.value);
+      const allCards = document.querySelectorAll('.theme-card');
+      console.log('Found cards:', allCards.length);
+
+      allCards.forEach(card => {
+        const radio = card.querySelector('.theme-radio') as HTMLInputElement;
+        const cardInner = card.querySelector('.card-inner') as HTMLElement;
+        const radioDot = card.querySelector('.radio-dot') as HTMLElement;
+        const radioIndicator = card.querySelector('.radio-indicator') as HTMLElement;
+
+        console.log('Checking radio:', radio?.value, 'selected:', radio === selectedRadio);
+
+        if (radio === selectedRadio) {
+          console.log('Setting active style for:', radio.value);
+          cardInner.style.borderColor = '#f43f5e'; // 櫻桃粉色
+          radioDot.classList.remove('hidden');
+          radioIndicator.style.borderColor = '#f43f5e';
+          console.log('Applied active styles');
+        } else {
+          cardInner.style.borderColor = 'var(--border-color)';
+          radioDot.classList.add('hidden');
+          radioIndicator.style.borderColor = '#9ca3af';
+        }
+      });
+    }
+
+    // 應用主題
+    function applyTheme(theme: string) {
+      // 直接使用全局主題管理器，它會處理 cookies 存儲
+      if ((window as any).themeManager) {
+        (window as any).themeManager.setTheme(theme);
+      }
+    }
+
+
+    // 全局標記確保只初始化一次
+    let isInitialized = false;
+
+    // 初始化所有功能
+    function initSettingsPage() {
+      console.log('Initializing settings page...');
+
+      // 確保元素存在
+      const themeCards = document.querySelectorAll('.theme-card');
+      console.log('Found theme cards:', themeCards.length);
+
+      if (themeCards.length === 0) {
+        console.log('No theme cards found, retrying in 100ms...');
+        setTimeout(initSettingsPage, 100);
+        return;
+      }
+
+      // 只初始化一次主題UI
+      if (!isInitialized) {
+        initTheme();
+        isInitialized = true;
+      }
+
+      // 每次都重新綁定事件監聽器
+      bindEventListeners();
+
+      console.log('Settings page initialized successfully');
+    }
+
+    // 綁定事件監聽器
+    function bindEventListeners() {
+      // 移除舊的事件監聽器
+      const themeContainer = document.querySelector('.theme-options');
+      if (themeContainer) {
+        const newContainer = themeContainer.cloneNode(true) as HTMLElement;
+        themeContainer.parentNode?.replaceChild(newContainer, themeContainer);
+
+        // 重新綁定點擊事件
+        newContainer.addEventListener('click', (e) => {
+          const target = e.target as HTMLElement;
+          const card = target.closest('.theme-card') as HTMLElement;
+
+          if (card) {
+            e.preventDefault();
+            const radio = card.querySelector('.theme-radio') as HTMLInputElement;
+            if (radio) {
+              console.log('Clicked theme:', radio.value);
+
+              // 取消所有選中狀態
+              document.querySelectorAll('.theme-radio').forEach(r => {
+                (r as HTMLInputElement).checked = false;
+              });
+
+              // 設置當前選中
+              radio.checked = true;
+              console.log('Setting radio checked:', radio.checked);
+              updateCardStyles(radio);
+              applyTheme(radio.value);
+            }
+          }
+        });
+      }
+    }
+
+    // 頁面載入時初始化
+    function onPageLoad() {
+      if (window.location.pathname === '/settings') {
+        console.log('Settings page loaded, initializing...');
+        initSettingsPage();
+      }
+    }
+
+    // 立即檢查當前頁面
+    onPageLoad();
+
+    // 監聽 SPA 頁面載入事件
+    document.addEventListener('astro:page-load', () => {
+      console.log('Astro page load event fired');
+      setTimeout(() => {
+        onPageLoad();
+      }, 100);
+    });
+
+    // 監聽 URL 變化
+    let currentPath = window.location.pathname;
+    setInterval(() => {
+      if (window.location.pathname !== currentPath) {
+        console.log('URL changed from', currentPath, 'to', window.location.pathname);
+        currentPath = window.location.pathname;
+        if (currentPath === '/settings') {
+          setTimeout(() => {
+            initSettingsPage();
+          }, 100);
+        }
+      }
+    }, 100);
+  </script>
+
+  <style>
+    .settings-layout {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .theme-card:hover .card-inner {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+
+    .sidebar-item {
+      transition: all 0.2s;
+    }
+
+    .sidebar-item:hover {
+      transform: translateX(2px);
+    }
+
+    @media (max-width: 1024px) {
+      .settings-layout {
+        flex-direction: column;
+      }
+
+      .settings-sidebar {
+        width: 100%;
+      }
+
+      .theme-options {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .theme-options {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</Layout>
