@@ -1,0 +1,32 @@
+---
+// Header 組件 - 櫻桃主題應用商店頂部欄
+---
+
+<header class="fixed top-0 left-0 w-full z-50 py-4 backdrop-blur-lg bg-white/80 border-b border-gray-200 shadow-sm">
+  <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+    <div class="flex items-center space-x-3">
+      <span class="text-3xl">🍒</span>
+      <h1 class="text-2xl font-bold text-gray-800">Cherry App Store</h1>
+    </div>
+    <nav class="hidden md:flex space-x-6">
+      <a href="/" class="text-gray-600 font-medium hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-lg transition-colors duration-300">首頁</a>
+      <a href="/apps" class="text-gray-600 font-medium hover:text-gray-900 hover:bg-gray-10 px-3 py-2 rounded-lg transition-colors duration-300">應用程式</a>
+      <a href="/categories" class="text-gray-600 font-medium hover:text-gray-900 hover:bg-gray-10 px-3 py-2 rounded-lg transition-colors duration-300">分類</a>
+      <a href="/search" class="text-gray-600 font-medium hover:text-gray-900 hover:bg-gray-10 px-3 py-2 rounded-lg transition-colors duration-300">搜尋</a>
+      <a href="/profile" class="text-gray-600 font-medium hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-lg transition-colors duration-300">個人檔案</a>
+    </nav>
+    <div class="flex items-center space-x-3">
+      <button class="bg-gray-100 border-0 rounded-full w-10 h-10 text-gray-700 text-lg cursor-pointer transition-colors duration-300 hover:bg-gray-200 flex items-center justify-center">🔍</button>
+      <a href="/settings" class="bg-gray-100 border-0 rounded-full w-10 h-10 text-gray-700 text-lg cursor-pointer transition-colors duration-300 hover:bg-gray-200 flex items-center justify-center inline-block">⚙️</a>
+    </div>
+  </div>
+</header>
+
+<style>
+ /* 添加一些響應式設計 */
+  @media (max-width: 768px) {
+    .cherry-header .header-container {
+      padding: 0 1rem;
+    }
+  }
+</style>
