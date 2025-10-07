@@ -2,7 +2,7 @@
 // Header 組件 - 櫻桃主題應用商店頂部欄
 ---
 
-<header class="fixed top-0 left-0 w-full z-50 py-4 backdrop-blur-lg bg-white/80 border-b border-gray-200 shadow-sm">
+<header class="fixed top-0 left-0 w-full z-50 py-4 backdrop-blur-lg bg-white/80 border-b border-gray-200 shadow-sm" transition:persist>
   <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
     <div class="flex items-center space-x-3">
       <span class="text-3xl">🍒</span>
@@ -17,7 +17,9 @@
     </nav>
     <div class="flex items-center space-x-3">
       <button class="bg-gray-100 border-0 rounded-full w-10 h-10 text-gray-700 text-lg cursor-pointer transition-colors duration-300 hover:bg-gray-200 flex items-center justify-center">🔍</button>
-      <a href="/settings" class="bg-gray-100 border-0 rounded-full w-10 h-10 text-gray-700 text-lg cursor-pointer transition-colors duration-300 hover:bg-gray-200 flex items-center justify-center inline-block">⚙️</a>
+      <a href="/settings" class="inline-block">
+        <button class="bg-gray-100 border-0 rounded-full w-10 h-10 text-gray-700 text-lg cursor-pointer transition-colors duration-300 hover:bg-gray-200 flex items-center justify-center">⚙️</button>
+      </a>
     </div>
   </div>
 </header>

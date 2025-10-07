@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import '../styles/global.css';
 ---
@@ -12,6 +13,7 @@ import '../styles/global.css';
 		<meta name="generator" content={Astro.generator} />
 		<title>Cherry App Store</title>
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+		<ViewTransitions />
 	</head>
 	<body>
 		<Header />
