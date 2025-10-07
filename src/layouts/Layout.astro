@@ -41,9 +41,8 @@ import '../styles/global.css';
 				if (theme === 'auto') {
 					const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 					actualTheme = prefersDark ? 'dark' : 'light';
-				} else if (theme === 'oled') {
-					actualTheme = 'dark'; // OLED 使用深色主題變體
 				}
+				// OLED 模式直接使用 'oled' 作為 data-theme 值
 				document.documentElement.setAttribute('data-theme', actualTheme);
 			}
 

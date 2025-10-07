@@ -1,27 +1,39 @@
 @import "tailwindcss";
 
-/* 淺色主題（預設） */
+/* 淺色主題（預設）- 純白 */
 :root {
   --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
-  --border-color: #e5e7eb;
-  --header-bg: rgba(255, 255, 255, 0.8);
+  --bg-secondary: #f8f9fa;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --border-color: #e0e0e0;
+  --header-bg: rgba(255, 255, 255, 0.95);
   --card-bg: #ffffff;
   --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 }
 
-/* 深色主題 - 純黑 */
+/* 深色主題 */
 [data-theme="dark"] {
-  --bg-primary: #000000;
-  --bg-secondary: #0a0a0a;
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2a2a2a;
   --text-primary: #ffffff;
   --text-secondary: #cccccc;
-  --border-color: #333333;
-  --header-bg: rgba(0, 0, 0, 0.8);
-  --card-bg: #0a0a0a;
+  --border-color: #404040;
+  --header-bg: rgba(26, 26, 26, 0.95);
+  --card-bg: #2a2a2a;
   --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.5), 0 1px 2px -1px rgb(0 0 0 / 0.5);
+}
+
+/* OLED 主題 - 純黑 */
+[data-theme="oled"] {
+  --bg-primary: #000000;
+  --bg-secondary: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #ffffff;
+  --border-color: #333333;
+  --header-bg: rgba(0, 0, 0, 0.95);
+  --card-bg: #000000;
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.8), 0 1px 2px -1px rgb(0 0 0 / 0.8);
 }
 
 :root {
